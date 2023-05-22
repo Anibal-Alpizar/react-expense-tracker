@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGlobalState } from "../context/GlobalState";
+import { useGlobalState } from "../../context/GlobalState";
 
 function TransactionForm() {
   const { addTransaction } = useGlobalState();
@@ -8,8 +8,7 @@ function TransactionForm() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addTransaction({ description, amount });
-    console.log({ id: 1, description, amount });
+    addTransaction({ id: window.crypto.randomUUID(), description, amount });
   };
 
   return (
